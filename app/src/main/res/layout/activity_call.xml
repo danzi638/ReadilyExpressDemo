@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <include layout="@layout/shopping_title"/>
+    <EditText
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:editable="false"
+        android:background="@drawable/white_bg"
+        android:paddingLeft="10dp"
+        android:maxLength="11"
+        android:id="@+id/et_input"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        >
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:text="1"
+            android:textSize="20dp"
+            android:background="@drawable/white_selector"
+            android:id="@+id/btn_1"/>
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:text="2"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:background="@drawable/white_selector"
+            android:id="@+id/btn_2"/>
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:text="3"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:background="@drawable/white_selector"
+            android:id="@+id/btn_3"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        >
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:text="4"
+            android:background="@drawable/white_selector"
+            android:textSize="20dp"
+            android:id="@+id/btn_4"/>
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:text="5"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:background="@drawable/white_selector"
+            android:id="@+id/btn_5"/>
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:text="6"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/white_selector"
+            android:textSize="20dp"
+            android:id="@+id/btn_6"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        >
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:text="7"
+            android:textSize="20dp"
+            android:background="@drawable/white_selector"
+            android:id="@+id/btn_7"/>
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:text="8"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:background="@drawable/white_selector"
+            android:id="@+id/btn_8"/>
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:text="9"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/white_selector"
+            android:textSize="20dp"
+            android:id="@+id/btn_9"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        >
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:text="*"
+            android:textSize="20dp"
+            android:background="@drawable/white_selector"
+            android:id="@+id/btn_xinghao"/>
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:text="0"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:background="@drawable/white_selector"
+            android:id="@+id/btn_0"/>
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:text="#"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/white_selector"
+            android:textSize="20dp"
+            android:id="@+id/btn_jinhao"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        >
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:text="删除"
+            android:textSize="20dp"
+            android:background="@drawable/white_selector"
+            android:id="@+id/btn_del"/>
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:text="C"
+            android:textSize="20dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/white_selector"
+            android:id="@+id/btn_chg"/>
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:text="呼叫"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/green_selector"
+            android:textSize="20dp"
+            android:id="@+id/btn_call"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

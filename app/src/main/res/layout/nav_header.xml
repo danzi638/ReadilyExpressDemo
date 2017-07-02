@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@color/main"
+    android:padding="10dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/icon_image"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/nav_icon" />
+
+    <TextView
+        android:id="@+id/nav_xinyong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="信用："
+        android:textColor="#FFF"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/nav_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/nav_xinyong"
+        android:text="电话："
+        android:textColor="#FFF"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/nav_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/nav_phone"
+        android:text="昵称："
+        android:textColor="#FFF"
+        android:textSize="14sp" />
+
+</RelativeLayout>

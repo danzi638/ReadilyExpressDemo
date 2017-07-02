@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50sp"
+    android:background="@color/main"
+    android:orientation="horizontal"
+    android:id="@+id/ll_title">
+
+    <ImageView
+        android:id="@+id/image_user"
+        android:layout_width="35sp"
+        android:layout_height="35sp"
+        android:layout_margin="5sp"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/icon_user" />
+
+    <TextView
+        android:id="@+id/tv_title_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:text="最近联系人"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+    <ImageView
+        android:id="@+id/image_add"
+        android:layout_width="35sp"
+        android:layout_height="35sp"
+        android:layout_margin="5sp"
+        android:src="@drawable/em_add"
+        android:layout_gravity="center_vertical"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/tv_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5sp"
+        android:text="更多"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center_vertical"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/tv_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5sp"
+        android:text="添加"
+        android:textSize="20sp"
+        android:layout_gravity="center_vertical"
+        android:textColor="@android:color/white"
+        android:visibility="gone"/>
+</LinearLayout>
