@@ -23,8 +23,8 @@ public class IMApplication extends Application {
 
         //初始化环信的EaseUI
         EMOptions options = new EMOptions();
-//        options.setAcceptInvitationAlways(false);//设置需要同意后才能接受邀请
-//        options.setAutoAcceptGroupInvitation(false);//设置需要同意后才能接受群聊
+        options.setAcceptInvitationAlways(false);//设置需要同意后才能接受邀请
+        options.setAutoAcceptGroupInvitation(false);//设置需要同意后才能接受群聊
         EaseUI.getInstance().init(this,options);
         Log.d(TAG, "环信初始化成功");
         //初始化数据模型层类

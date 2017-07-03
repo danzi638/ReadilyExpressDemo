@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
-            android:text="好友邀请"
+            android:text="申请与通知"
             android:textSize="20sp" />
 
         <ImageView

@@ -18,6 +18,7 @@ import com.example.jiayin.readilyexpressdemo.utils.Constant;
 import com.hyphenate.chat.EMMessage;
 import com.hyphenate.easeui.EaseConstant;
 import com.hyphenate.easeui.ui.EaseChatFragment;
+import com.hyphenate.easeui.widget.EaseChatInputMenu;
 import com.hyphenate.easeui.widget.chatrow.EaseCustomChatRowProvider;
 
 // 会话详情页面
@@ -28,6 +29,7 @@ public class ChatActivity extends FragmentActivity {
     private EaseChatFragment easeChatFragment;
     private LocalBroadcastManager mLBM;
     private int mChatType;
+    private EaseChatInputMenu easeChatInputMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +96,7 @@ public class ChatActivity extends FragmentActivity {
     private void initData() {
         // 创建一个会话的fragment
         easeChatFragment = new EaseChatFragment();
+//        easeChatInputMenu = new EaseChatInputMenu();
         mHxid = getIntent().getStringExtra(EaseConstant.EXTRA_USER_ID);
         // 获取聊天类型
         mChatType = getIntent().getExtras().getInt(EaseConstant.EXTRA_CHAT_TYPE);

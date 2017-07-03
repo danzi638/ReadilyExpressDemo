@@ -26,11 +26,12 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".app.IMApplication"
         android:allowBackup="true"
-        android:icon="@drawable/icon_ichat"
+        android:icon="@drawable/icon_ichat_main"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -73,10 +74,10 @@
         <activity android:name=".friend.activity.NewGroupActivity" />
         <activity android:name=".friend.activity.PickContactActivity" />
         <activity android:name=".friend.activity.AddContactActivity" />
-        <activity android:name=".friend.activity.InviteActivity" />
+        <activity android:name=".friend.activity.InviteActivity" /·>
         <activity android:name=".friend.activity.GroupDetailActivity" />
         <activity android:name=".community.activity.SendMessageActivity" />
-
+        <!-- 配置百度地图key -->
         <!-- 配置mob -->
         <activity
             android:name="com.mob.tools.MobUIShell"
