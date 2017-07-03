@@ -2,6 +2,8 @@ package com.example.jiayin.readilyexpressdemo.app;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
@@ -16,6 +18,7 @@ import com.example.jiayin.readilyexpressdemo.R;
 import com.example.jiayin.readilyexpressdemo.model.Model;
 import com.example.jiayin.readilyexpressdemo.model.bean.UserInfo;
 import com.example.jiayin.readilyexpressdemo.utils.Constant;
+//import com.example.jiayin.readilyexpressdemo.utils.CustomVideoView;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 
@@ -27,6 +30,7 @@ public class LoginActivity extends Activity {
     private EditText et_login_pwd;
     private Button bt_login_regist;
     private Button bt_login_login;
+//    private CustomVideoView videoview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,6 +138,32 @@ public class LoginActivity extends Activity {
         et_login_pwd = (EditText) findViewById(R.id.et_login_pwd);
         bt_login_regist = (Button) findViewById(R.id.bt_login_regist);
         bt_login_login = (Button) findViewById(R.id.bt_login_login);
+        //加载视频资源控件
+//        videoview = (CustomVideoView) findViewById(R.id.videoView);
+//        //设置播放加载路径
+//        videoview.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.ichat_2));
+//        //播放
+//        videoview.start();
+//        //循环播放
+//        videoview.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+//            @Override
+//            public void onCompletion(MediaPlayer mediaPlayer) {
+//                videoview.start();
+//            }
+//        });
+
+    }
+    //返回重启加载
+    @Override
+    protected void onRestart() {
+//        initView();
+        super.onRestart();
     }
 
+    //防止锁屏或者切出的时候，音乐在播放
+    @Override
+    protected void onStop() {
+//        videoview.stopPlayback();
+        super.onStop();
+    }
 }

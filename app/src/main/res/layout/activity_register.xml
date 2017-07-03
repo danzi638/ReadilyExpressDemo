@@ -39,7 +39,9 @@
             android:id="@+id/et_register_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="输入用户名" />
+            android:hint="输入用户名"
+            android:digits="1234567890.qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM@."
+            android:maxLength="16"/>
     </LinearLayout>
 
     <LinearLayout
@@ -83,8 +85,7 @@
             android:id="@+id/et_register_yzm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="输入验证码"
-            android:inputType="textPassword" />
+            android:hint="输入验证码" />
     </LinearLayout>
 
     <LinearLayout

@@ -74,10 +74,14 @@
         <activity android:name=".friend.activity.NewGroupActivity" />
         <activity android:name=".friend.activity.PickContactActivity" />
         <activity android:name=".friend.activity.AddContactActivity" />
-        <activity android:name=".friend.activity.InviteActivity" /·>
+        <activity android:name=".friend.activity.InviteActivity" />
         <activity android:name=".friend.activity.GroupDetailActivity" />
         <activity android:name=".community.activity.SendMessageActivity" />
         <!-- 配置百度地图key -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="XPDE5ffyP3jAyzvUnf1tbfjsMcveKlaT"/>
+        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"/>
         <!-- 配置mob -->
         <activity
             android:name="com.mob.tools.MobUIShell"
