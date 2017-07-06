@@ -42,22 +42,22 @@ class ChannelAdapter extends ArrayAdapter<CommunityItem> {
         if (convertView == null) {
             view = LayoutInflater.from(getContext()).inflate(resourceId, parent, false);
             viewHolder = new ViewHolder();
-            viewHolder.fruitImage = (ImageView) view.findViewById (R.id.community_image);
-            viewHolder.fruitName = (TextView) view.findViewById (R.id.community_name);
+            viewHolder.communityImage = (ImageView) view.findViewById (R.id.community_gv_image);
+            viewHolder.communityName = (TextView) view.findViewById (R.id.community_gv_name);
             view.setTag(viewHolder); // 将ViewHolder存储在View中
         } else {
             view = convertView;
             viewHolder = (ViewHolder) view.getTag(); // 重新获取ViewHolder
         }
-        viewHolder.fruitImage.setImageResource(communityItem.getImageId());
-        viewHolder.fruitName.setText(communityItem.getName());
+        viewHolder.communityImage.setImageResource(communityItem.getImageId());
+        viewHolder.communityName.setText(communityItem.getName());
         return view;
     }
 
     class ViewHolder {
 
-        ImageView fruitImage;
-        TextView fruitName;
+        ImageView communityImage;
+        TextView communityName;
 
     }
 }

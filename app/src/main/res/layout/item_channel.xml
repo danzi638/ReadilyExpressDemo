@@ -1,22 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:orientation="horizontal">
+    android:layout_width="110dp"
+    android:layout_height="80dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <ImageView
-        android:id="@+id/community_image"
+        android:id="@+id/community_gv_image"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_margin="5dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginLeft="10dp"/>
+        android:layout_gravity="center"
+        android:src="@drawable/icon_ichat_main"/>
 
     <TextView
-        android:id="@+id/community_name"
+        android:id="@+id/community_gv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginLeft="20dp" />
-
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="硅谷视频"
+        android:textColor="#000"
+        android:textSize="15dp" />
 </LinearLayout>
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:orientation="horizontal">-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/community_image"-->
+        <!--android:layout_width="35dp"-->
+        <!--android:layout_height="35dp"-->
+        <!--android:layout_margin="5dp"-->
+        <!--android:layout_gravity="center_vertical"-->
+        <!--android:layout_marginLeft="10dp"/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/community_name"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center_vertical"-->
+        <!--android:layout_marginLeft="20dp" />-->
+
+<!--</LinearLayout>-->

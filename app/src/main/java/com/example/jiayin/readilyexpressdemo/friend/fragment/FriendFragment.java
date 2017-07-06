@@ -115,12 +115,13 @@ public class FriendFragment extends EaseContactListFragment {
         ll_contact_group.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(getActivity(), GroupListActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(getActivity(), GroupListActivity.class);
+                startActivity(intent);
                 Toast.makeText(getActivity(),"跳转到群组列表页面",Toast.LENGTH_SHORT).show();
 
             }
         });
+
     }
 
     @Override

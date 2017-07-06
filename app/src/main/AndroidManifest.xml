@@ -25,8 +25,9 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:name=".app.IMApplication"
@@ -77,21 +78,84 @@
         <activity android:name=".friend.activity.InviteActivity" />
         <activity android:name=".friend.activity.GroupDetailActivity" />
         <activity android:name=".community.activity.SendMessageActivity" />
+        <activity android:name=".community.activity.ShoppingActivity" />
+        <activity android:name=".app.SettingUserActivity" />
+        <activity android:name=".app.AccountInfoActivity" />
+        <activity android:name=".community.activity.CallActivity" />
+        <activity android:name=".community.activity.ShareActivity" />
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide" />
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseBaiduMapActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide" />
         <!-- 配置百度地图key -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="XPDE5ffyP3jAyzvUnf1tbfjsMcveKlaT"/>
-        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"/>
+            android:value="U6Ki3W6fyp7bEarnnBKaKbBIwA2tuehE" />
         <!-- 配置mob -->
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity android:name=".community.activity.ShoppingActivity" />
-        <activity android:name=".app.SettingUserActivity" />
-        <activity android:name=".app.AccountInfoActivity" />
-        <activity android:name=".community.activity.CallActivity"></activity>
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <data android:scheme="tencent100371282" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- 调用新浪原生SDK，需要注册的回调activity -->
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- 集成line客户端登录授权，需要添如下格式的过滤器 -->
+            <intent-filter>
+                <data android:scheme="line.1477692153" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 微信分享回调 -->
+        <activity
+            android:name=".utils.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--
+ ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".app.WelcomeToLoginActivity" />
+        <activity android:name=".app.LoginByUserActivity" />
+        <activity android:name=".community.activity.WeatherAcitivty" />
+        <activity android:name=".community.activity.WeatherSeeActivity" />
+        <activity android:name=".community.activity.HotNewActivity" />
+        <activity android:name=".community.activity.FriendGroupActivity" />
+        <activity android:name=".community.activity.HelpActivity" />
+        <activity android:name=".community.activity.HelpForActivity"></activity>
     </application>
 
 </manifest>

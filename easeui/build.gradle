@@ -8,8 +8,8 @@ android {
         minSdkVersion 14
         targetSdkVersion 23
     }
-	
-	sourceSets {
+
+    sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
             java.srcDirs = ['src']
@@ -43,7 +43,12 @@ android {
 }
 
 dependencies {
-	//release时需要把hyphenatechatsdk的依赖注释掉，sdk已经被打成jar包放在libs底下
-	//compile project(':hyphenatechatsdk')
+    //release时需要把hyphenatechatsdk的依赖注释掉，sdk已经被打成jar包放在libs底下
+    //compile project(':hyphenatechatsdk')
     compile fileTree(dir: 'libs', include: '*.jar')
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.2.1'
+
 }

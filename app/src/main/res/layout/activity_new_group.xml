@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    >
 
     <com.hyphenate.easeui.widget.EaseTitleBar
         android:layout_width="match_parent"
@@ -71,7 +73,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@android:color/holo_green_light"
+        android:background="@color/main"
         android:text="创建"
         android:textColor="@android:color/white"
         android:textSize="20sp" />

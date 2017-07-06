@@ -6,7 +6,7 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:src="@drawable/em_group_icon"
+        android:src="@drawable/ichat_group"
         android:layout_width="50dp"
         android:layout_height="50dp" />
 

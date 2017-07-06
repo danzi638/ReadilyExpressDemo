@@ -2,6 +2,10 @@ package com.example.jiayin.readilyexpressdemo.chat.fragment;
 
 import android.content.Intent;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.example.jiayin.readilyexpressdemo.R;
@@ -12,6 +16,7 @@ import com.hyphenate.chat.EMConversation;
 import com.hyphenate.chat.EMMessage;
 import com.hyphenate.easeui.EaseConstant;
 import com.hyphenate.easeui.controller.EaseUI;
+import com.hyphenate.easeui.model.EaseAtMessageHelper;
 import com.hyphenate.easeui.ui.EaseConversationListFragment;
 
 import java.util.List;
@@ -27,6 +32,7 @@ public class ChatFragment extends EaseConversationListFragment {
     @Override
     protected void initView() {
         super.initView();
+        registerForContextMenu(conversationListView);
 
         // 跳转到会话详情页面
         setConversationListItemClickListener(new EaseConversationListFragment.EaseConversationListItemClickListener() {
@@ -83,4 +89,34 @@ public class ChatFragment extends EaseConversationListFragment {
 
         }
     };
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        getActivity().getMenuInflater().inflate(R.menu.em_delete_message, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        boolean deleteMessage = false;
+        if (item.getItemId() == R.id.delete_message) {
+            deleteMessage = true;
+        } else if (item.getItemId() == R.id.delete_conversation) {
+            deleteMessage = false;
+        }
+        EMConversation tobeDeleteCons = conversationListView.getItem(((AdapterView.AdapterContextMenuInfo) item.getMenuInfo()).position);
+        if (tobeDeleteCons == null) {
+            return true;
+        }
+        if(tobeDeleteCons.getType() == EMConversation.EMConversationType.GroupChat){
+            EaseAtMessageHelper.get().removeAtMeGroup(tobeDeleteCons.conversationId());
+        }
+        try {
+            // delete conversation
+            EMClient.getInstance().chatManager().deleteConversation(tobeDeleteCons.conversationId(), deleteMessage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        refresh();
+        return true;
+    }
 }

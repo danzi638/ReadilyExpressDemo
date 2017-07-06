@@ -7,7 +7,7 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:src="@drawable/em_create_group"
+        android:src="@drawable/add_group"
         android:layout_width="50dp"
         android:layout_height="50dp" />
 

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="50sp"
     android:background="@color/main"
-    android:orientation="horizontal"
     android:id="@+id/ll_title">
 
     <ImageView
@@ -11,24 +10,17 @@
         android:layout_width="35sp"
         android:layout_height="35sp"
         android:layout_margin="5sp"
-        android:layout_gravity="center_vertical"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
         android:src="@drawable/main_exit" />
-
     <TextView
         android:id="@+id/community_name"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_gravity="center_vertical"
-        android:gravity="center"
+        android:layout_centerInParent="true"
         android:text="iChat"
         android:textColor="@android:color/white"
         android:textSize="20sp" />
-    <ImageView
-        android:id="@+id/community_add"
-        android:layout_width="35sp"
-        android:layout_height="35sp"
-        android:layout_margin="5sp"
-        android:layout_gravity="center_vertical"
-        android:src="@drawable/em_add" />
-</LinearLayout>
+
+</RelativeLayout>

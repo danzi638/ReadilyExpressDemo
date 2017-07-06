@@ -1,8 +1,11 @@
 package com.example.jiayin.readilyexpressdemo.app;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +13,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -19,6 +24,7 @@ import com.example.jiayin.readilyexpressdemo.R;
 import com.example.jiayin.readilyexpressdemo.community.activity.SendMessageActivity;
 import com.example.jiayin.readilyexpressdemo.model.Model;
 import com.example.jiayin.readilyexpressdemo.utils.Constant;
+import com.example.jiayin.readilyexpressdemo.utils.SystemBarTintManager;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;
 import com.mob.MobSDK;
@@ -41,10 +47,38 @@ public class RegisterActivity extends Activity {
     private String verificationCode;  // 验证码
     private boolean flag;  // 操作是否成功
 
+    //控制按钮样式是否改变
+    private boolean tag = true;
+    //每次验证请求需要间隔60S
+    private int i=60;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        if (Build.VERSION.SDK_INT >= 21) {
+//            View decorView = getWindow().getDecorView();
+//            decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+//                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+//            getWindow().setStatusBarColor(Color.TRANSPARENT);
+//        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) { //系统版本大于19
+            setTranslucentStatus(true);
+        }
+        SystemBarTintManager tintManager = new SystemBarTintManager(this);
+        tintManager.setStatusBarTintEnabled(true);
+        tintManager.setStatusBarTintResource(R.color.main);//设置标题栏颜色，此颜色在color中声明
+    }
+    @TargetApi(19)
+    private void setTranslucentStatus(boolean on) {
+        Window win = getWindow();
+        WindowManager.LayoutParams winParams = win.getAttributes();
+        final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+        if (on) {
+            winParams.flags |= bits;        // a|=b的意思就是把a和b按位或然后赋值给a   按位或的意思就是先把a和b都换成2进制，然后用或操作，相当于a=a|b
+        } else {
+            winParams.flags &= ~bits;        //&是位运算里面，与运算  a&=b相当于 a = a&b  ~非运算符
+        }
+        win.setAttributes(winParams);
         setContentView(R.layout.activity_register);
 
         initView();
@@ -56,7 +90,7 @@ public class RegisterActivity extends Activity {
 //
         MobSDK.init(context, AppKey, AppSecret); // 初始化 SDK 单例，可以多次调用
 
-        EventHandler eventHandler = new EventHandler(){    // 操作回调
+        EventHandler eventHandler = new EventHandler() {    // 操作回调
             @Override
             public void afterEvent(int event, int result, Object data) {
                 Message msg = new Message();
@@ -97,6 +131,7 @@ public class RegisterActivity extends Activity {
                         SMSSDK.submitVerificationCode("86", phoneNumber, verificationCode);
                         flag = false;
                         register();
+
                     } else {
                         Toast.makeText(RegisterActivity.this, "请输入完整的验证码", Toast.LENGTH_SHORT).show();
                         et_register_yzm.requestFocus();
@@ -118,7 +153,7 @@ public class RegisterActivity extends Activity {
             return;
         }
         //判断二次密码是否正确
-        if (!registerPassword.equals(registerPasswordAgain)){
+        if (!registerPassword.equals(registerPasswordAgain)) {
             Log.e(TAG, "register: " + registerPassword + " to " + registerPasswordAgain);
             Toast.makeText(RegisterActivity.this, "两次输入密码不匹配，请重新输入", Toast.LENGTH_SHORT).show();
             return;
@@ -132,13 +167,13 @@ public class RegisterActivity extends Activity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(RegisterActivity.this,"注册成功",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
                             Log.d(TAG, "注册成功");
-                            Intent intent  = new Intent(RegisterActivity.this,LoginActivity.class);
-                            intent.putExtra(Constant.REGISTER_ID,registerName);
-                            intent.putExtra(Constant.REGISTER_PWD,registerPassword);
-                            Log.e(TAG, "login: "+ registerName );
-                            Log.e(TAG, "login: "+ registerPassword );
+                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                            intent.putExtra(Constant.REGISTER_ID, registerName);
+                            intent.putExtra(Constant.REGISTER_PWD, registerPassword);
+                            Log.e(TAG, "login: " + registerName);
+                            Log.e(TAG, "login: " + registerPassword);
                             startActivity(intent);
                         }
                     });
@@ -147,7 +182,7 @@ public class RegisterActivity extends Activity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(RegisterActivity.this,"注册失败" + e.toString(),Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "注册失败" + e.toString(), Toast.LENGTH_SHORT).show();
                             Log.d(TAG, "注册失败");
                         }
                     });
@@ -155,6 +190,7 @@ public class RegisterActivity extends Activity {
             }
         });
     }
+
     private void initView() {
         et_register_username = (EditText) findViewById(R.id.et_register_username);
         et_register_phone = (EditText) findViewById(R.id.et_register_phone);
@@ -164,6 +200,7 @@ public class RegisterActivity extends Activity {
         et_register_password_again = (EditText) findViewById(R.id.et_register_password_again);
         bt_login_regist_to = (Button) findViewById(R.id.bt_login_regist_to);
     }
+
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -180,6 +217,7 @@ public class RegisterActivity extends Activity {
                     Intent intent = new Intent(RegisterActivity.this, WelcomeActivity.class);
                     startActivity(intent);
                 } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
+                    changeBtnGetCode();
                     // 获取验证码成功，true为智能验证，false为普通下发短信
                     Toast.makeText(RegisterActivity.this, "验证码已发送", Toast.LENGTH_SHORT).show();
                 } else if (event == SMSSDK.EVENT_GET_SUPPORTED_COUNTRIES) {
@@ -202,5 +240,52 @@ public class RegisterActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         SMSSDK.unregisterAllEventHandler(); // 注销回调接口
+    }
+    /**
+     * 改变按钮样式
+     * */
+    private void changeBtnGetCode() {
+
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                if (tag) {
+                    while (i > 0) {
+                        i--;
+                        //如果活动为空
+                        if (RegisterActivity.this == null) {
+                            break;
+                        }
+                        RegisterActivity.this.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                btn_get.setText("重新发送(" + i + "s" + ")");
+                                btn_get.setClickable(false);
+                            }
+                        });
+
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    tag = false;
+                }
+                i = 60;
+                tag = true;
+
+                if (RegisterActivity.this != null) {
+                    RegisterActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            btn_get.setText("获取验证码");
+                            btn_get.setClickable(true);
+                        }
+                    });
+                }
+            }
+        };
+        thread.start();
     }
 }

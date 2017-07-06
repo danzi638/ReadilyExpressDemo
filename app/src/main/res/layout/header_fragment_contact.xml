@@ -13,7 +13,7 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/em_new_friends_icon" />
+            android:src="@drawable/ichat_notify" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -36,13 +36,12 @@
         android:id="@+id/ll_contact_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:visibility="gone">
+        android:padding="10dp">
 
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/em_group_icon" />
+            android:src="@drawable/ichat_group" />
 
         <TextView
             android:layout_width="wrap_content"

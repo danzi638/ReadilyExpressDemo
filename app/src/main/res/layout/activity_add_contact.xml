@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="#f2f2f2">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -29,25 +31,35 @@
             android:textColor="@android:color/white"
             android:textSize="20sp" />
     </RelativeLayout>
-
     <EditText
         android:id="@+id/et_add_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
+        android:layout_height="39dp"
+        android:layout_margin="10dp"
+        android:paddingLeft="5dp"
+        android:background="@drawable/em_button_normal_shape"
+        android:hint="@string/user_name"
+        android:singleLine="true"
+        android:textColorHint="#b3b3b3"
+        android:textSize="18sp" />
+
 
     <RelativeLayout
-        android:visibility="gone"
         android:id="@+id/rl_add"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
+        android:background="@drawable/ease_mm_listitem"
+        android:duplicateParentState="true"
+        android:visibility="gone"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
         android:layout_margin="10dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iv_add_photo"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/em_default_avatar" />
+            android:src="@drawable/icon_ichat_main_108" />
 
         <TextView
             android:id="@+id/tv_add_name"
